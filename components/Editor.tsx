@@ -88,11 +88,16 @@ export default function Editor() {
         {(() => !(db == "blog") ? "" : <>
         <button onClick={() => {
             if (typeof db === "string" && typeof post === "string") {
+                // @ts-ignore
+                if (client.authStore.model?.profile.canDeletePosts) {
                 client.records.delete(db, post).then(() => {
                     alert("yeeted!")
                 }, (err) => {
                     alert(err.message)
                 })
+            } else {
+                alert("You don't have permission to delete posts in the notebook")
+            }
             } else {
                 alert("error: this should literally never happen. you have permission to go yell at cheru.")
             }
