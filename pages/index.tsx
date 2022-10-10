@@ -9,7 +9,7 @@ import {marked} from "marked";
 
 const Post = ({content}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return <div>
-        <h1>We{"'"}re a <Link href={"https://www.firstinspires.org/robotics/ftc"}><a><em>FIRST Tech Challenge</em></a></Link> team based in <Link href={"https://goo.gl/maps/n3ED5ijuHhCxj2N57"}><a><em>Essex, Vermont</em></a></Link></h1>
+        <h1 style={{color: "white"}}>We{"'"}re a <Link href={"https://www.firstinspires.org/robotics/ftc"}><a><em>FIRST Tech Challenge</em></a></Link> team based in <Link href={"https://goo.gl/maps/n3ED5ijuHhCxj2N57"}><a><em>Essex, Vermont</em></a></Link></h1>
 
         <div style={{display: "flex"}}>
             <div className={styles.logo}><Image src={logo} alt="HiveMind Robotics Logo" layout={"responsive"}/></div>
