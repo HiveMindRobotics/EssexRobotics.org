@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+:root {
+  --primary: #E78A37;
+  --secondary: #E78A37
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+h2, h3, h4, h5, h6 {
+  color: var(--primary)
+}
+
+a:focus,
+a:hover {  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-style: wavy;
+  text-decoration-skip-ink: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+
+.button {
+  padding: 8px;
+  display: inline-block;
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+}
+
+.highlight pre {
+  font-family: "JetBrains Mono", monospace;
+  border: 1px solid #999;
+  border-radius: 10px;
+  display: block;
+  padding: 10px;
+  width: 75%;
+  background-color: #282a36;
+}
+
+code {
+  border: 1px solid #282a36;
+  color: white;
+  background-color: #282a36;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 2px;
+}
+
+table {
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  min-width: 350px;
+}
+
+table tr th, table tr td {
+  border: 1px solid var(--primary);
+  padding: 5px;
+}
+
+.editor-preview {
+  background-color: black !important;
+}
+
+.editor-preview table tr th, .editor-preview table tr td {
+  border: 1px solid var(--primary) !important;
+  padding: 5px !important;
+}

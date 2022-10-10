@@ -1,0 +1,137 @@
+.background
+  background-color: black
+  background-image: url("/background.png")
+  background-size: 150px 150px
+  background-repeat: repeat
+  width: 100vw
+  height: 100vh
+  position: fixed
+  top: 0
+  bottom: 0
+  z-index: -1
+  // border: 2px #E78A37 solid
+
+
+.background::after
+  content: ''
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 0
+  left: 0
+  background-color: black
+  background-size: cover
+  mask-repeat: no-repeat no-repeat
+  mask-image: radial-gradient(10vmin at var(--x) var(--y), rgba(0, 0, 0, 0.6) 50%, black 1500%)
+
+.container
+    display: flex
+    flex-direction: column
+    //align-items: center
+
+
+.home
+  //text-align: center
+  padding: 10px
+  // to account for the sidebar. yes I know this is a magic number
+  color: white
+  margin-left: calc(304.883px + 20px)
+  margin-right: 20px
+  max-width: 768px
+
+  p
+    line-height: 150%
+    font-size: 1.1em
+
+  @media only screen and (max-width: 800px)
+    max-width: 100%
+    margin-left: 0
+    margin-right: 0
+
+.mobileHeader
+  display: none
+
+
+  //background-color: #E78A37
+  //color: white
+//
+  //padding: 5px
+//
+  //text-align: center
+//
+  //p
+  //  font-size: 30px
+  //  margin: 0
+
+
+.logo
+  display: none
+  @media only screen and (max-width: 800px)
+    display: block
+    width: 50%
+    margin: auto
+
+.headerContainer
+  display: flex
+  flex-direction: column
+  // justify-content: center
+  position: fixed
+  top: 0
+  left: 0
+  height: 100vh
+  @media only screen and (max-width: 800px)
+    position: fixed
+    background-color: black
+    z-index: 999
+    display: var(--mobileDisplay)
+    border-top: 2px var(--secondary) dashed
+    height: var(--mobileHeaderHeight)
+    width: 100%
+    transition: opacity 0.5s
+    opacity: 1
+
+.hide
+  @media only screen and (max-width: 800px)
+    opacity: 0
+
+.mobileButton
+  display: none
+  @media only screen and (max-width: 800px)
+    display: block
+    z-index: 1000
+    position: fixed
+    bottom: 0
+    right: 0
+
+.mobileButtonSpecific
+  background-color: #E78A37
+  color: white
+  border: none
+  height: 35px
+  width: 35px
+  margin: 10px
+  border-radius: 15px
+  display: flex
+  justify-content: center
+  align-items: center
+
+.header
+  color: white
+  margin: 20px
+  padding: 10px
+  // border: 2px var(--secondary) dashed
+  //border-radius: 20px
+  display: flex
+  font-size: 2em
+  flex-direction: column
+
+  a
+    color: white
+
+
+.links
+  display: flex
+  flex-direction: column
+  line-height: 1.5em
+  text-align: left
+  padding: 10px
