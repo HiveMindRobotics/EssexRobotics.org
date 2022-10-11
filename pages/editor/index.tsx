@@ -4,7 +4,8 @@ import {useRouter} from "next/router";
 
 export default function Index() {
     const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
+    /* const [username, setUsername] = useState(''); */
+    const username = "HiveMindRobotics@gmail.com"
     const router = useRouter();
 
     const [client] = useState(new PocketBase('https://essexrobotics.org:8091'))
@@ -16,11 +17,13 @@ export default function Index() {
     }, [client, router])
 
     return <div>
+        {/*
         <label>
             Email:
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
         </label>
         <br/>
+            */}
         <label>
             Password
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
