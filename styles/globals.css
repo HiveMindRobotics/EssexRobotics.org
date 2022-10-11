@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 a:focus,
 a:hover {  text-decoration: underline;
   text-underline-position: under;
-  text-decoration-style: wavy;
+  /*text-decoration-style: wavy;*/
   text-decoration-skip-ink: none;
 }
 
