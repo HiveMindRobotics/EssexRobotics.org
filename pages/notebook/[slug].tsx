@@ -6,7 +6,7 @@ const Post = ({content, title}: InferGetServerSidePropsType<typeof getServerSide
 
     return <div>
         <h1 style={{fontSize: "3em", color: "var(--primary)"}}>{title}</h1>
-        <div dangerouslySetInnerHTML={{__html: marked.parse(content)}}></div>
+        <div dangerouslySetInnerHTML={{__html: content}}></div>
     </div>
 }
 
@@ -20,7 +20,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     return {
         props: {
-            content: data.content,
+            content: marked.parse(data.content),
             title: data.title,
             date: data.date,
             category: data.category

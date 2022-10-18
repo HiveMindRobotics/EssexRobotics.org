@@ -6,6 +6,7 @@ import {useRouter} from "next/router";
 import {Simulate} from "react-dom/test-utils";
 import input = Simulate.input;
 import styles from "../../styles/Home.module.sass";
+import Navigator from "../../components/Navigator";
 
 export default function Portal({page, totalItems, items}: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const router = useRouter()
@@ -43,11 +44,7 @@ export default function Portal({page, totalItems, items}: InferGetServerSideProp
                 <p>{item.title} - {new Date(item.date).toDateString()} <button onClick={() => router.push(`/editor/editor?db=blog&post=${item.id}`)}>edit</button></p>
             </div>
         })}
-        <div style={{display: "flex", alignItems: "center"}}>
-            {(() => page == 1 ? "" : <button onClick={() => router.push(`?page=${page - 1}`)} className={styles.mobileButtonSpecific}>{'🡄'}</button>)()}
-            {(() => totalItems <= 30 ? "" : <span>&nbsp;<b style={{fontSize: "1.5em"}}>{page}</b>&nbsp;</span>)()}
-            {(() => Math.ceil(totalItems / 30) <= page ? "" : <button onClick={() => router.push(`?page=${page + 1}`)} className={styles.mobileButtonSpecific}>{'🡆'}</button>)()}
-        </div>
+        <Navigator page={page} totalItems={totalItems} />
         <br/>
         <button onClick={() => {
                 client.records.create('blog', {

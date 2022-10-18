@@ -3,6 +3,7 @@ import {GetServerSidePropsContext, InferGetServerSidePropsType} from "next";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import styles from "../../styles/Home.module.sass";
+import Navigator from "../../components/Navigator";
 
 
 const Notebook = ({page, totalItems, items}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -27,11 +28,7 @@ const Notebook = ({page, totalItems, items}: InferGetServerSidePropsType<typeof 
             </div>
         })}
         <br/>
-        <div style={{display: "flex", alignItems: "center"}}>
-            {(() => page == 1 ? "" : <button onClick={() => router.push(`?page=${page - 1}`)} className={styles.mobileButtonSpecific}>{'🡄'}</button>)()}
-            {(() => totalItems <= 30 ? "" : <span>&nbsp;<b style={{fontSize: "1.5em"}}>{page}</b>&nbsp;</span>)()}
-            {(() => Math.ceil(totalItems / 30) <= page ? "" : <button onClick={() => router.push(`?page=${page + 1}`)} className={styles.mobileButtonSpecific}>{'🡆'}</button>)()}
-        </div>
+        <Navigator page={page} totalItems={totalItems} />
     </div>
 }
 

@@ -68,10 +68,13 @@ export default function Editor() {
         {(() => !(db == "blog") ? "" : <>
         <input type="text" value={value.title} onChange={(e) => setValue({...value, title: e.target.value})} placeholder={"Title"}/>
         <input type="date" value={value.date.substring(0, 10)} onChange={(e) => setValue({...value, date: new Date(Date.parse(e.target.value)).toISOString()})}/>
-        <select value={value.category} onChange={(e) => setValue({...value, category: e.target.value})}>
-            <option value="programming">programming</option>
-            <option value="notes">notes</option>
-        </select>
+            <select value={value.category} onChange={(e) => setValue({...value, category: e.target.value})}>
+                <option value="programming">Programming</option>
+                <option value="outreach">Outreach</option>
+                <option value="events">Events</option>
+                <option value="building">Building</option>
+                <option value="notes">Notes</option>
+            </select>
         <br/>
         </>)()}
         <button onClick={() => {
