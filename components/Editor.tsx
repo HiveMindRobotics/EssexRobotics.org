@@ -19,7 +19,8 @@ export default function Editor() {
         "title": "",
         "date": "",
         "content": "",
-        "category": ""
+        "category": "",
+        "draft":true,
     });
 
 
@@ -89,22 +90,23 @@ export default function Editor() {
             }
         }}>Save</button>
         {(() => !(db == "blog") ? "" : <>
+            {/* @ts-ignore */}
+        {(() => (client.authStore.model?.profile.canDeletePosts) ? "" : (
         <button onClick={() => {
             if (typeof db === "string" && typeof post === "string") {
-                // @ts-ignore
-                if (client.authStore.model?.profile.canDeletePosts) {
                 client.records.delete(db, post).then(() => {
                     alert("yeeted!")
                 }, (err) => {
                     alert(err.message)
                 })
             } else {
-                alert("You don't have permission to delete posts in the notebook")
-            }
-            } else {
                 alert("error: this should literally never happen. you have permission to go yell at cheru.")
             }
         }}>Delete</button>
+            ))()}
+            <label style={{color: "black"}}>&nbsp;Draft:&nbsp;
+                <input type="checkbox" checked={value.draft} onChange={(e) => setValue({...value, draft: e.target.checked})}/>
+            </label>
         <br/>
         </>)()}
     </div>

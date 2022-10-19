@@ -9,7 +9,9 @@ const Category = ({page, totalItems, items, category}: InferGetServerSidePropsTy
     const router = useRouter()
     return <div>
         <h1 style={{fontSize: "3em", color: "var(--primary)"}}>{category.substring(0, 1).toUpperCase() + category.substring(1)}</h1>
-        {items.map((item: {
+        {
+            // @ts-ignore
+            items.map((item: {
             title: string
             date: string
             id: string
@@ -37,12 +39,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
             page: resultList.page,
             totalItems: resultList.totalItems,
             items: resultList.items.map((item: Record<any, any>) => {
-                return {
+                if (!item.draft) return {
                     title: item.title,
                     date: item.date,
                     id: item.id
                 }
-            }),
+            }).filter(Boolean),
             category: slug
         }
     }

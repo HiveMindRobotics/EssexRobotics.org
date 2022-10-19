@@ -9,10 +9,12 @@ import Navigator from "../../components/Navigator";
 const Notebook = ({page, totalItems, items}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const router = useRouter()
 
+    console.log(items)
     return <div>
         <h1 style={{fontSize: "3em", color: "var(--primary)"}}>Notebook</h1>
 
-        {items.map((item: {
+        {// @ts-ignore
+            items.map((item: {
             title: string
             date: string
             category: string
@@ -42,13 +44,13 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
             page: resultList.page,
             totalItems: resultList.totalItems,
             items: resultList.items.map((item: Record<any, any>) => {
-                return {
+                if (!item.draft) return {
                     title: item.title,
                     date: item.date,
                     category: item.category,
                     id: item.id
                 }
-            })
+            }).filter(Boolean)
         }
     }
 }

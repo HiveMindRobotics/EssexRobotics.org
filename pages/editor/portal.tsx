@@ -24,7 +24,8 @@ export default function Portal({page, totalItems, items}: InferGetServerSideProp
             } else {
                 alert("You don't have permission to edit the site")
             }
-        }}>Edit For Parents Page</button>
+        }}>Edit For Parents Page
+        </button>
         <button onClick={() => {
             //@ts-ignore
             if (client.authStore.model?.profile.canEditSite) {
@@ -32,35 +33,43 @@ export default function Portal({page, totalItems, items}: InferGetServerSideProp
             } else {
                 alert("You don't have permission to edit the site")
             }
-        }}>Edit Home Page</button>
+        }}>Edit Home Page
+        </button>
         {items.map((item: {
             content: string
             title: string
             date: string
             category: string
-            id: string
+            id: string,
+            draft: boolean
         }) => {
             return <div key={item.id}>
-                <p>{item.title} - {new Date(item.date).toDateString()} <button onClick={() => router.push(`/editor/editor?db=blog&post=${item.id}`)}>edit</button></p>
+                <p>{item.title} - {new Date(item.date).toDateString()} <span
+                    style={{color: "var(--primary)"}}>{item.draft ? "[DRAFT]" : ""}</span>&nbsp;
+                    <button onClick={() => router.push(`/editor/editor?db=blog&post=${item.id}`)}>edit</button>
+                </p>
             </div>
         })}
-        <Navigator page={page} totalItems={totalItems} />
+        <Navigator page={page} totalItems={totalItems}/>
         <br/>
         <button onClick={() => {
-                client.records.create('blog', {
-                    title: "Title",
-                    date: new Date(new Date().setHours(0, 0, 0, 0)).toISOString(),
-                }).then((record) => {
-                    router.push(`/editor/editor?db=blog&post=${record.id}`)
-                }, (err) => {
-                    alert(err.message)
-                })
-        }}>new post</button>
+            client.records.create('blog', {
+                title: "Title",
+                date: new Date(new Date().setHours(0, 0, 0, 0)).toISOString(),
+                draft: true
+            }).then((record) => {
+                router.push(`/editor/editor?db=blog&post=${record.id}`)
+            }, (err) => {
+                alert(err.message)
+            })
+        }}>new post
+        </button>
         <br/>
         <button onClick={() => {
-        client.authStore.clear()
-        router.push("/editor")
-        }}>logout</button>
+            client.authStore.clear()
+            router.push("/editor")
+        }}>logout
+        </button>
     </div>
 }
 
@@ -79,7 +88,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
                     title: item.title,
                     date: item.date,
                     category: item.category,
-                    id: item.id
+                    id: item.id,
+                    draft: item.draft
                 }
             })
         }
