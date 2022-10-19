@@ -16,7 +16,15 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     // @ts-ignore
     const {slug} = context.params
 
-    const data = await client.records.getOne('blog', slug)
+    let data: any
+    try {
+        data = await client.records.getOne('blog', slug)
+    } catch (e: any) {
+        if (e.status !== 404) throw e
+        return {
+            notFound: true
+        }
+    }
 
     return {
         props: {
