@@ -91,7 +91,7 @@ export default function Editor() {
         }}>Save</button>
         {(() => !(db == "blog") ? "" : <>
             {/* @ts-ignore */}
-        {(() => (client.authStore.model?.profile.canDeletePosts) ? "" : (
+        {(() => (!client.authStore.model?.profile.canDeletePosts) ? "" : (
         <button onClick={() => {
             if (typeof db === "string" && typeof post === "string") {
                 client.records.delete(db, post).then(() => {
