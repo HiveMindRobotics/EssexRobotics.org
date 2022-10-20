@@ -11,9 +11,9 @@ config.autoAddCss = false
 import Image from "next/image";
 import logo from "../public/logo.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEnvelope, faImages, faPen, faNewspaper, faHamburger} from "@fortawesome/free-solid-svg-icons";
+import {faEnvelope, faImages, faPen, faNewspaper, faHamburger, faRulerCombined} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import {faGithub, faInstagram} from "@fortawesome/free-brands-svg-icons";
+import {faGithub, faInstagram, faTiktok} from "@fortawesome/free-brands-svg-icons";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -66,10 +66,22 @@ function MyApp({ Component, pageProps }: AppProps) {
         <div className={styles.links}>
           <HeaderEntry link={"/notebook"} icon={faPen}>Notebook</HeaderEntry>
           <HeaderEntry link={"/gallery"} icon={faImages}>Gallery</HeaderEntry>
+          <HeaderEntry link={"/cad"} icon={faRulerCombined}>CAD Models</HeaderEntry>
           <HeaderEntry link={"/parents"} icon={faNewspaper}>For Parents</HeaderEntry>
-          <HeaderEntry link={"https://instagram.com/ftc_3397"} icon={faInstagram}>Instagram</HeaderEntry>
+          <hr style={{color: "white", width: "100%"}}/>
+          <div style={{
+            "display": "flex",
+            flexDirection: "row",
+            "justifyContent": "space-around",
+          }}>
+            <Link href="https://tiktok"><a><FontAwesomeIcon viewBox={"0 0 512 512"} icon={faTiktok}/></a></Link>
+            <Link href="https://instagram.com/ftc_3397"><a><FontAwesomeIcon viewBox={"0 0 512 512"} icon={faInstagram}/></a></Link>
+            <Link href="https://github.com/HiveMindRobotics"><a><FontAwesomeIcon viewBox={"0 0 512 512"} icon={faGithub}/></a></Link>
+            <Link href="mailto:hivemindrobotics@gmail.com"><a><FontAwesomeIcon viewBox={"0 0 512 512"} icon={faEnvelope}/></a></Link>
+          </div>
+{/*          <HeaderEntry link={"https://instagram.com/ftc_3397"} icon={faInstagram}>Instagram</HeaderEntry>
           <HeaderEntry link={"https://github.com/HiveMindRobotics"} icon={faGithub}>Github</HeaderEntry>
-          <HeaderEntry link={"mailto:hivemindrobotics@gmail.com"} icon={faEnvelope}>Contact Us</HeaderEntry>
+          <HeaderEntry link={"mailto:hivemindrobotics@gmail.com"} icon={faEnvelope}>Contact Us</HeaderEntry>*/}
         </div>
       </div>
     </div>
