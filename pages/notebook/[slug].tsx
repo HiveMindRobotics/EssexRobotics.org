@@ -13,12 +13,19 @@ const Post = ({content, title}: InferGetServerSidePropsType<typeof getServerSide
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const client = new PocketBase('http://127.0.0.1:8090')
 
+    await client.users.authViaEmail('HiveMindRobotics@gmail.com', process.env.NOTEBOOK_PASSWORD ?? '')
+
     // @ts-ignore
     const {slug} = context.params
 
     let data: any
     try {
         data = await client.records.getOne('blog', slug)
+        if (data.draft == true) {
+            return {
+                notFound: true
+            }
+        }
     } catch (e: any) {
         if (e.status !== 404) throw e
         return {
