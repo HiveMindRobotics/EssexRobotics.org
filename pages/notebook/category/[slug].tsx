@@ -32,19 +32,19 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     // @ts-ignore
     const {slug} = context.params
 
-    const resultList = await client.records.getList('blog', parseInt(context.query["page"] as string) || 1, 30, {sort: "-date", filter: `category='${slug}'`})
+    const resultList = await client.records.getList('blog', parseInt(context.query["page"] as string) || 1, 30, {sort: "-date", filter: `category='${slug}' && draft=false`})
 
     return {
         props: {
             page: resultList.page,
             totalItems: resultList.totalItems,
             items: resultList.items.map((item: Record<any, any>) => {
-                if (!item.draft) return {
+                return {
                     title: item.title,
                     date: item.date,
                     id: item.id
                 }
-            }).filter(Boolean),
+            }),
             category: slug
         }
     }

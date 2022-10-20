@@ -74,7 +74,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             flexDirection: "row",
             "justifyContent": "space-around",
           }}>
-            <Link href="https://tiktok"><a><FontAwesomeIcon viewBox={"0 0 512 512"} icon={faTiktok}/></a></Link>
+            <Link href="https://tiktok.com/@hivemindrobotics"><a><FontAwesomeIcon viewBox={"0 0 512 512"} icon={faTiktok}/></a></Link>
             <Link href="https://instagram.com/ftc_3397"><a><FontAwesomeIcon viewBox={"0 0 512 512"} icon={faInstagram}/></a></Link>
             <Link href="https://github.com/HiveMindRobotics"><a><FontAwesomeIcon viewBox={"0 0 512 512"} icon={faGithub}/></a></Link>
             <Link href="mailto:hivemindrobotics@gmail.com"><a><FontAwesomeIcon viewBox={"0 0 512 512"} icon={faEnvelope}/></a></Link>

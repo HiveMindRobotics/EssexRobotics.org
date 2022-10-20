@@ -37,20 +37,20 @@ const Notebook = ({page, totalItems, items}: InferGetServerSidePropsType<typeof 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const client = new PocketBase('http://127.0.0.1:8090')
 
-    const resultList = await client.records.getList('blog', parseInt(context.query["page"] as string) || 1, 30, {sort: "-date"})
+    const resultList = await client.records.getList('blog', parseInt(context.query["page"] as string) || 1, 30, {sort: "-date", filter: `draft=false`})
 
     return {
         props: {
             page: resultList.page,
             totalItems: resultList.totalItems,
             items: resultList.items.map((item: Record<any, any>) => {
-                if (!item.draft) return {
+                return {
                     title: item.title,
                     date: item.date,
                     category: item.category,
                     id: item.id
                 }
-            }).filter(Boolean)
+            })
         }
     }
 }
