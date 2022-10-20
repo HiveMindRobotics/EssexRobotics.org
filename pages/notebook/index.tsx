@@ -9,7 +9,6 @@ import Navigator from "../../components/Navigator";
 const Notebook = ({page, totalItems, items}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const router = useRouter()
 
-    console.log(items)
     return <div>
         <h1 style={{fontSize: "3em", color: "var(--primary)"}}>Notebook</h1>
 
