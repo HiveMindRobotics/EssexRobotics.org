@@ -4,6 +4,7 @@ import {
     InferGetStaticPropsType
 } from "next";
 import {marked} from "marked";
+import consts from '/lib/consts'
 
 const Post = ({content}: InferGetStaticPropsType<typeof getStaticProps>) => {
 
