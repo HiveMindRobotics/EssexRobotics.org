@@ -11,7 +11,7 @@ const Post = ({content, title}: InferGetServerSidePropsType<typeof getServerSide
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-    const client = new PocketBase('http://127.0.0.1:8090')
+    const client = new PocketBase('https://essexrobotics.org:8091')
 
     await client.users.authViaEmail('HiveMindRobotics@gmail.com', process.env.NOTEBOOK_PASSWORD ?? '')
 

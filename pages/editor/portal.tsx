@@ -3,8 +3,6 @@ import PocketBase from "pocketbase";
 import Link from "next/link";
 import {GetServerSidePropsContext, InferGetServerSidePropsType} from "next";
 import {useRouter} from "next/router";
-import {Simulate} from "react-dom/test-utils";
-import input = Simulate.input;
 import styles from "../../styles/Home.module.sass";
 import Navigator from "../../components/Navigator";
 
@@ -74,7 +72,7 @@ export default function Portal({page, totalItems, items}: InferGetServerSideProp
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-    const client = new PocketBase('http://127.0.0.1:8090')
+    const client = new PocketBase('https://essexrobotics.org:8091')
 
     const resultList = await client.records.getList('blog', parseInt(context.query["page"] as string) || 1, 30, {sort: "-date"})
 

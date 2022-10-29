@@ -20,7 +20,7 @@ const Post = ({content}: InferGetStaticPropsType<typeof getStaticProps>) => {
 }
 
 export async function getStaticProps() {
-    const client = new PocketBase('http://127.0.0.1:8090')
+    const client = new PocketBase('https://essexrobotics.org:8091')
 
     let data:  any
     let list = await client.records.getList("site", 1, 2, {
