@@ -1,7 +1,7 @@
 import PocketBase from 'pocketbase'
 import {GetServerSidePropsContext, InferGetServerSidePropsType} from "next";
 import {marked} from "marked";
-import consts from '/lib/consts'
+import consts from '../../lib/consts'
 
 
 const Post = ({content, title}: InferGetServerSidePropsType<typeof getServerSideProps>) => {

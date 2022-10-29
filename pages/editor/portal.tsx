@@ -5,7 +5,7 @@ import {GetServerSidePropsContext, InferGetServerSidePropsType} from "next";
 import {useRouter} from "next/router";
 import styles from "../../styles/Home.module.sass";
 import Navigator from "../../components/Navigator";
-import consts from '/lib/consts'
+import consts from '../../lib/consts'
 
 
 export default function Portal({page, totalItems, items}: InferGetServerSidePropsType<typeof getServerSideProps>) {

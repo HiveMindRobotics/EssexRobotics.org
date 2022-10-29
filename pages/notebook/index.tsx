@@ -4,7 +4,7 @@ import Link from "next/link";
 import {useRouter} from "next/router";
 import styles from "../../styles/Home.module.sass";
 import Navigator from "../../components/Navigator";
-import consts from '/lib/consts'
+import consts from '../../lib/consts'
 
 
 

@@ -6,7 +6,7 @@ import logo from '../public/logo.png'
 import teamPicture from '../public/CornMaze2022.jpg'
 import Link from "next/link"
 import {marked} from "marked";
-import consts from '/lib/consts'
+import consts from '../lib/consts'
 
 
 const Post = ({content}: InferGetStaticPropsType<typeof getStaticProps>) => {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "../../../styles/Home.module.sass";
 import {useRouter} from "next/router";
 import Navigator from "../../../components/Navigator";
-import consts from '/lib/consts'
+import consts from '../../../lib/consts'
 
 
 const Category = ({page, totalItems, items, category}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
