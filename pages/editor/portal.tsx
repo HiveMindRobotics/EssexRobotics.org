@@ -72,7 +72,7 @@ export default function Portal({page, totalItems, items}: InferGetServerSideProp
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-    const client = new PocketBase('https://essexrobotics.org:8091')
+    const client = new PocketBase(consts.DB_URL)
 
     const resultList = await client.records.getList('blog', parseInt(context.query["page"] as string) || 1, 30, {sort: "-date"})
 

@@ -13,7 +13,7 @@ const Post = ({content}: InferGetStaticPropsType<typeof getStaticProps>) => {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-    const client = new PocketBase('https://essexrobotics.org:8091')
+    const client = new PocketBase(consts.DB_URL)
 
     // @ts-ignore
     const {slug} = context.params

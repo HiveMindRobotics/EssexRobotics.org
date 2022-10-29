@@ -34,7 +34,7 @@ const Notebook = ({page, totalItems, items}: InferGetServerSidePropsType<typeof 
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-    const client = new PocketBase('https://essexrobotics.org:8091')
+    const client = new PocketBase(consts.DB_URL)
 
     await client.users.authViaEmail('HiveMindRobotics@gmail.com', process.env.NOTEBOOK_PASSWORD ?? '')
 
