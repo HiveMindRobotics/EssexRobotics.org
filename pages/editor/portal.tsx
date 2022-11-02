@@ -76,6 +76,8 @@ export default function Portal({page, totalItems, items}: InferGetServerSideProp
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const client = new PocketBase(consts.DB_URL)
 
+    await client.users.authViaEmail('HiveMindRobotics@gmail.com', process.env.NOTEBOOK_PASSWORD ?? '')
+
     const resultList = await client.records.getList('blog', parseInt(context.query["page"] as string) || 1, 30, {sort: "-date"})
 
     return {
