@@ -1,6 +1,7 @@
 import PocketBase, {ClientResponseError} from "pocketbase";
 import {useContext, useEffect, useState} from "react";
 import {useRouter} from "next/router";
+import consts from "../../lib/consts";
 
 export default function Index() {
     const [password, setPassword] = useState('');
@@ -8,7 +9,7 @@ export default function Index() {
     const username = "HiveMindRobotics@gmail.com"
     const router = useRouter();
 
-    const [client] = useState(new PocketBase('https://essexrobotics.org:8091'))
+    const [client] = useState(new PocketBase(consts.DB_URL))
 
     useEffect(() => {
         if (client.authStore.isValid) {

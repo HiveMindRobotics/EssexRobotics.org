@@ -10,7 +10,7 @@ import consts from '../../lib/consts'
 
 export default function Portal({page, totalItems, items}: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const router = useRouter()
-    const [client] = useState(new PocketBase('https://essexrobotics.org:8091'))
+    const [client] = useState(new PocketBase(consts.DB_URL))
     useEffect(() => {
         if (!client.authStore.isValid) {
             router.push("/editor")

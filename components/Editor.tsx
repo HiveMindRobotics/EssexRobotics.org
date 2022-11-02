@@ -3,12 +3,13 @@ import "easymde/dist/easymde.min.css"
 import {useEffect, useMemo, useState} from "react";
 import PocketBase from "pocketbase";
 import {useRouter} from "next/router";
+import consts from "../lib/consts";
 
 export default function Editor() {
 
     const router = useRouter()
 
-    const [client] = useState(new PocketBase('https://essexrobotics.org:8091'))
+    const [client] = useState(new PocketBase(consts.DB_URL))
 
     const {db, post} = router.query
 
