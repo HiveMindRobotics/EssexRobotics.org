@@ -15,7 +15,7 @@ const Post = ({content, title}: InferGetServerSidePropsType<typeof getServerSide
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const client = new PocketBase(consts.DB_URL)
 
-    await client.users.authViaEmail('HiveMindRobotics@gmail.com', process.env.NOTEBOOK_PASSWORD ?? '')
+    // await client.users.authViaEmail('HiveMindRobotics@gmail.com', process.env.NOTEBOOK_PASSWORD ?? '')
 
     // @ts-ignore
     const {slug} = context.params
