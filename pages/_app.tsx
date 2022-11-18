@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </div>
         <div className={styles.links}>
           <HeaderEntry link={"/notebook"} icon={faPen}>Notebook</HeaderEntry>
-          <HeaderEntry link={"/gallery"} icon={faImages}>Gallery</HeaderEntry>
+          /*<HeaderEntry link={"/gallery"} icon={faImages}>Gallery</HeaderEntry>*/
           <HeaderEntry link={"/cad"} icon={faRulerCombined}>CAD Models</HeaderEntry>
           <HeaderEntry link={"/parents"} icon={faNewspaper}>For Parents</HeaderEntry>
           <hr style={{color: "white", width: "100%"}}/>
